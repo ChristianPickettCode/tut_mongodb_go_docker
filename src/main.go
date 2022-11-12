@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -111,7 +112,7 @@ func main() {
 
 	defer cancel()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb+srv://example:password1234@cluster0.k3nhskf.mongodb.net/?retryWrites=true&w=majority"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(os.Getenv("MONGODB_URI")))
 
 	if err != nil {
 		panic(err)

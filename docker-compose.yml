@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    ports:
+      - "12345:12345"
+    environment:
+      MONGODB_URI: mongodb+srv://example:password1234@cluster0.k3nhskf.mongodb.net/?retryWrites=true&w=majority
